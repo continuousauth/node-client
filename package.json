@@ -1,0 +1,27 @@
+{
+  "name": "@continuous-auth/client",
+  "version": "2.1.0",
+  "description": "Node.JS Client for the CFA service",
+  "main": "lib/index.js",
+  "author": "Samuel Attard",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "tsc",
+    "prettier:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "prettier:write": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "test": "jest --coverage"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.9",
+    "@types/node": "^11.9.6",
+    "jest": "^24.1.0",
+    "jest-junit": "^10.0.0",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3333"
+  }
+}

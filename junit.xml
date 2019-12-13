@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="11" failures="0" time="1.847">
+  <testsuite name="@continuous-auth/client" errors="0" failures="0" skipped="0" timestamp="2019-12-13T05:47:23" time="1.424" tests="5">
+    <testcase classname="@continuous-auth/client should throw an error when CFA_SECRET is not set" name="@continuous-auth/client should throw an error when CFA_SECRET is not set" time="0.003">
+    </testcase>
+    <testcase classname="@continuous-auth/client should throw an error when CFA_PROJECT_ID is not set" name="@continuous-auth/client should throw an error when CFA_PROJECT_ID is not set" time="0.001">
+    </testcase>
+    <testcase classname="@continuous-auth/client should throw an error on an unsupported CI platform" name="@continuous-auth/client should throw an error on an unsupported CI platform" time="0">
+    </testcase>
+    <testcase classname="@continuous-auth/client should use the circleci provider on circleci" name="@continuous-auth/client should use the circleci provider on circleci" time="0.001">
+    </testcase>
+    <testcase classname="@continuous-auth/client should use the travisci provider on travisci" name="@continuous-auth/client should use the travisci provider on travisci" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="getProofThroughCircleCI" errors="0" failures="0" skipped="0" timestamp="2019-12-13T05:47:25" time="0.11" tests="6">
+    <testcase classname="getProofThroughCircleCI should error out if the start request fails" name="getProofThroughCircleCI should error out if the start request fails" time="0.001">
+    </testcase>
+    <testcase classname="getProofThroughCircleCI should log out the provided proof content" name="getProofThroughCircleCI should log out the provided proof content" time="0.001">
+    </testcase>
+    <testcase classname="getProofThroughCircleCI should error out if the validation request fails" name="getProofThroughCircleCI should error out if the validation request fails" time="0">
+    </testcase>
+    <testcase classname="getProofThroughCircleCI should error out if the acquire request fails" name="getProofThroughCircleCI should error out if the acquire request fails" time="0.011">
+    </testcase>
+    <testcase classname="getProofThroughCircleCI should eventually error out if one of the acquire requests fails" name="getProofThroughCircleCI should eventually error out if one of the acquire requests fails" time="0.024">
+    </testcase>
+    <testcase classname="getProofThroughCircleCI should keep trying to acquire until content is available" name="getProofThroughCircleCI should keep trying to acquire until content is available" time="0.012">
+    </testcase>
+  </testsuite>
+</testsuites>
