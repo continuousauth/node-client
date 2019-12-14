@@ -15,7 +15,8 @@
 		"strictNullChecks": true,
 		"allowSyntheticDefaultImports": true,
 		"jsx": "react",
-		"incremental": true
+		"incremental": true,
+		"declaration": true
 	},
 	"exclude": [
 		"node_modules",
