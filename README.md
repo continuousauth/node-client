@@ -18,6 +18,12 @@ Returns `Promise<string>`.
 
 This promise eventually resolves with a valid OTP code, please be aware that this code is user provided and therefore may have been entered incorrectly.  You also need to use OTP codes quite quickly as they typically expire within 30 seconds.
 
+### `validateConfiguration()`
+
+Returns `Promise<void>`.
+
+This promise will resolve if your project ID and secret are a valid combination for the current CI provider.  It will be rejected if they are deemed invalid by the CFA service.
+
 ## Example
 
 ```js
