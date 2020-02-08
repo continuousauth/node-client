@@ -18,7 +18,7 @@ const getConfig = () => {
   }
 
   return { CFA_HOST, CFA_SECRET, CFA_PROJECT_ID };
-}
+};
 
 const getClient = () => {
   const { CFA_HOST, CFA_SECRET } = getConfig();
@@ -30,7 +30,7 @@ const getClient = () => {
     },
     validateStatus: () => true,
   });
-}
+};
 
 export const validateConfiguration = async () => {
   const { CFA_PROJECT_ID } = getConfig();
@@ -42,7 +42,7 @@ export const validateConfiguration = async () => {
   } else if (process.env.TRAVIS) {
     slug = 'travisci';
   } else {
-    throw new Error('Unsupported CI provider, currently we only support CircleCI and TravisCI')
+    throw new Error('Unsupported CI provider, currently we only support CircleCI and TravisCI');
   }
 
   const response = await cfaClient.post(`/api/request/${CFA_PROJECT_ID}/${slug}/test`, {
@@ -50,9 +50,11 @@ export const validateConfiguration = async () => {
   });
   if (response.status !== 200) {
     console.error(response.data);
-    throw new Error('Your configuration for Continuous Auth is invalid, please check your config and try again');
+    throw new Error(
+      'Your configuration for Continuous Auth is invalid, please check your config and try again',
+    );
   }
-}
+};
 
 export const getOtp = async () => {
   const { CFA_PROJECT_ID } = getConfig();
@@ -69,4 +71,4 @@ export const getOtp = async () => {
   }
 };
 
-validateConfiguration()
+validateConfiguration();
