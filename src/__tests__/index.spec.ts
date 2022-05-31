@@ -1,12 +1,9 @@
 import { getOtp } from '../index';
 import { requestThroughCircleCI } from '../circleci';
-import { requestThroughTravisCI } from '../travisci';
 
 jest.mock('../circleci');
-jest.mock('../travisci');
 
 const mockedRequestThroughCircleCI = requestThroughCircleCI as jest.Mock;
-const mockedRequestThroughTravisCI = requestThroughTravisCI as jest.Mock;
 
 describe('@continuous-auth/client', () => {
   let env: NodeJS.ProcessEnv;
@@ -40,14 +37,5 @@ describe('@continuous-auth/client', () => {
     mockedRequestThroughCircleCI.mockReturnValue(Promise.resolve({ response: 'example token' }));
     const token = await getOtp();
     expect(token).toEqual('example token');
-  });
-
-  it('should use the travisci provider on travisci', async () => {
-    process.env.CFA_SECRET = 'secret';
-    process.env.CFA_PROJECT_ID = '123';
-    process.env.TRAVIS = 'true';
-    mockedRequestThroughTravisCI.mockReturnValue(Promise.resolve({ response: 'travis token' }));
-    const token = await getOtp();
-    expect(token).toEqual('travis token');
   });
 });
