@@ -1,11 +1,14 @@
 import { getOtp } from '../index';
 import { requestThroughCircleCI } from '../circleci';
+import { requestThroughGitHubActions } from '../github';
 import { requestThroughTravisCI } from '../travisci';
 
 jest.mock('../circleci');
 jest.mock('../travisci');
+jest.mock('../github');
 
 const mockedRequestThroughCircleCI = requestThroughCircleCI as jest.Mock;
+const mockedRequestThroughGitHubActions = requestThroughGitHubActions as jest.Mock;
 const mockedRequestThroughTravisCI = requestThroughTravisCI as jest.Mock;
 
 describe('@continuous-auth/client', () => {
@@ -40,6 +43,15 @@ describe('@continuous-auth/client', () => {
     mockedRequestThroughCircleCI.mockReturnValue(Promise.resolve({ response: 'example token' }));
     const token = await getOtp();
     expect(token).toEqual('example token');
+  });
+
+  it('should use the github provider on github', async () => {
+    process.env.CFA_SECRET = 'secret';
+    process.env.CFA_PROJECT_ID = '123';
+    process.env.CIRCLECI = 'true';
+    mockedRequestThroughGitHubActions.mockReturnValue(Promise.resolve({ response: 'example token' }));
+    const token = await getOtp();
+    expect(token).toEqual('github token');
   });
 
   it('should use the travisci provider on travisci', async () => {

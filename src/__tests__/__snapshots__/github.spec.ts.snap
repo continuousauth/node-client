@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getProofThroughGitHubActions should error out if the acquire request fails 1`] = `[Error: Unexpected status code while polling the CFA acquire endpoint: 400]`;
+
+exports[`getProofThroughGitHubActions should error out if the start request fails 1`] = `[Error: Unexpected status when starting proof process on GitHub Actions: 401]`;
+
+exports[`getProofThroughGitHubActions should error out if the validation request fails 1`] = `[Error: Unexpected status code when validating proof on GitHub Actions: 403]`;
+
+exports[`getProofThroughGitHubActions should eventually error out if one of the acquire requests fails 1`] = `[Error: Unexpected status code while polling the CFA acquire endpoint: 400]`;

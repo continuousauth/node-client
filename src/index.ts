@@ -2,6 +2,7 @@ import axios from 'axios';
 
 import { PRIMARY_CFA_HOST } from './constants';
 import { requestThroughCircleCI } from './circleci';
+import { requestThroughGitHubActions } from './github';
 import { requestThroughTravisCI } from './travisci';
 
 const getConfig = () => {
@@ -41,8 +42,10 @@ export const validateConfiguration = async () => {
     slug = 'circleci';
   } else if (process.env.TRAVIS) {
     slug = 'travisci';
+  } else if (process.env.GITHUB_ACTIONS) {
+    slug = 'github';
   } else {
-    throw new Error('Unsupported CI provider, currently we only support CircleCI and TravisCI');
+    throw new Error('Unsupported CI provider - currently we only support CircleCI, GitHub Actions, and TravisCI');
   }
 
   const response = await cfaClient.post(`/api/request/${CFA_PROJECT_ID}/${slug}/test`, {
@@ -66,8 +69,11 @@ export const getOtp = async () => {
   } else if (process.env.TRAVIS) {
     const request = await requestThroughTravisCI(cfaClient, CFA_PROJECT_ID);
     return request.response;
+  } else if (process.env.GITHUB_ACTIONS) {
+    const request = await requestThroughGitHubActions(cfaClient, CFA_PROJECT_ID);
+    return request.response;
   } else {
-    throw new Error('Unsupported CI provider, currently we only support CircleCI and TravisCI');
+    throw new Error('Unsupported CI provider - currently we only support CircleCI, GitHub Actions, and TravisCI');
   }
 };
 
