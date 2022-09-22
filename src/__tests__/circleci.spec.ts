@@ -5,7 +5,7 @@ describe('getProofThroughCircleCI', () => {
   let mockClient: {
     post: jest.Mock;
   };
-  const client = () => (mockClient as any) as AxiosInstance;
+  const client = () => mockClient as any as AxiosInstance;
   let consoleSpy: jest.SpyInstance;
 
   beforeEach(() => {

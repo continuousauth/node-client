@@ -47,7 +47,7 @@ export const requestThroughCircleCI = async (
     acquireCode = acquireResponse.status;
     if (acquireCode === 200) return acquireResponse.data;
     // Check again in 10 seconds
-    await new Promise(r => setTimeout(r, retryInterval));
+    await new Promise((r) => setTimeout(r, retryInterval));
   }
 
   throw new Error(`Unexpected status code while polling the CFA acquire endpoint: ${acquireCode}`);
