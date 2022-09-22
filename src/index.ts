@@ -70,5 +70,3 @@ export const getOtp = async () => {
     throw new Error('Unsupported CI provider, currently we only support CircleCI and TravisCI');
   }
 };
-
-validateConfiguration();
