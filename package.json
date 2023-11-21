@@ -13,7 +13,7 @@
     "test": "jest --coverage"
   },
   "dependencies": {
-    "axios": "^0.27.2"
+    "axios": "^1.6.2"
   },
   "devDependencies": {
     "@types/jest": "^29.0.3",
