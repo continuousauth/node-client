@@ -1,6 +1,6 @@
 {
   "name": "@continuous-auth/client",
-  "version": "2.2.3",
+  "version": "2.3.0",
   "description": "Node.JS Client for the CFA service",
   "main": "lib/index.js",
   "author": "Samuel Attard",
