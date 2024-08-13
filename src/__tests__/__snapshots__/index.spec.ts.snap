@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`@continuous-auth/client should throw an error on an unsupported CI platform 1`] = `[Error: Unsupported CI provider, currently we only support CircleCI and TravisCI]`;
+exports[`@continuous-auth/client should throw an error on an unsupported CI platform 1`] = `[Error: Unsupported CI provider, currently we only support CircleCI and GitHub Actions]`;
 
 exports[`@continuous-auth/client should throw an error when CFA_PROJECT_ID is not set 1`] = `[Error: Requested env var "CFA_PROJECT_ID" is missing or empty]`;
 

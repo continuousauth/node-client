@@ -42,7 +42,7 @@ export const validateConfiguration = async () => {
   } else if (process.env.GITHUB_ACTIONS) {
     slug = 'github';
   } else {
-    throw new Error('Unsupported CI provider, currently we only support CircleCI');
+    throw new Error('Unsupported CI provider, currently we only support CircleCI and GitHub Actions');
   }
 
   const response = await cfaClient.post(`/api/request/${CFA_PROJECT_ID}/${slug}/test`, {
@@ -67,6 +67,6 @@ export const getOtp = async () => {
     const request = await requestThroughGitHubActions(cfaClient, CFA_PROJECT_ID);
     return request.response;
   } else {
-    throw new Error('Unsupported CI provider, currently we only support CircleCI and TravisCI');
+    throw new Error('Unsupported CI provider, currently we only support CircleCI and GitHub Actions');
   }
 };
