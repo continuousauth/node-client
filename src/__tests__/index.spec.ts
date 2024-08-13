@@ -27,6 +27,7 @@ describe('@continuous-auth/client', () => {
   it('should throw an error on an unsupported CI platform', async () => {
     process.env.CFA_SECRET = 'test';
     process.env.CFA_PROJECT_ID = '123';
+    delete process.env.GITHUB_ACTIONS;
     await expect(getOtp()).rejects.toMatchSnapshot();
   });
 
