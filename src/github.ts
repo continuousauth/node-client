@@ -16,7 +16,7 @@ export const requestThroughGitHubActions = async (
 ): Promise<CFARequest> => {
   const startResponse = await cfaClient.post<CFARequest>(`/api/request/${projectId}/github`, {
     oidcToken: process.env.GITHUB_OIDC_TOKEN,
-    buildUrl: `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`
+    buildUrl: `${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID}`,
   });
 
   if (startResponse.status !== 200) {
@@ -45,7 +45,7 @@ export const requestThroughGitHubActions = async (
     acquireCode = acquireResponse.status;
     if (acquireCode === 200) return acquireResponse.data;
     // Check again in 10 seconds
-    await new Promise(r => setTimeout(r, retryInterval));
+    await new Promise((r) => setTimeout(r, retryInterval));
   }
 
   throw new Error(`Unexpected status code while polling the CFA acquire endpoint: ${acquireCode}`);
