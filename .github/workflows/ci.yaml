@@ -28,3 +28,20 @@ jobs:
         run: yarn test --maxWorkers=2
       - name: Run Linter
         run: yarn prettier:check
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    environment: npm
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          persist-credentials: false
+      - uses: continuousauth/action@4396fa3eb7c9790548b9e2b6e4f527df5b861add # v1.0.1
+        with:
+          project-id: ${{ secrets.CFA_PROJECT_ID }}
+          secret: ${{ secrets.CFA_SECRET }}
+          npm-token: ${{ secrets.NPM_TOKEN }}
