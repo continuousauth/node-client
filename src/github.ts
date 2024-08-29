@@ -20,6 +20,7 @@ export const requestThroughGitHubActions = async (
   });
 
   if (startResponse.status !== 200) {
+    console.error(`\nOTP request failed: ${startResponse.data}`);
     throw new Error(
       `Unexpected status when requesting otp on GitHub Actions: ${startResponse.status}`,
     );
