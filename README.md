@@ -1,7 +1,7 @@
 # @continuous-auth/client
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/continuousauth/node-client/CI?label=CI&logo=github&style=for-the-badge)
-[![GitHub Workflow Status](https://img.shields.io/badge/CFA-Enabled-success?style=for-the-badge)](https://github.com/continuousauth)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/continuousauth/node-client/ci.yaml?branch=main&label=CI&logo=github)](https://github.com/continuousauth/node-client/actions/workflows/ci.yaml)
+[![GitHub Workflow Status](https://img.shields.io/badge/CFA-Enabled-success)](https://github.com/continuousauth)
 
 This module expects to be run in a [Supported CI Environment](https://docs.continuousauth.dev/usage/circleci).  It infers a lot of variables from environment variables, these config variables are outlined below.
 
